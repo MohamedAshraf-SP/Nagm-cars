@@ -602,7 +602,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
         </div>
         <div id="fare-rows"></div>
       </div>
-      <p class="fares-note">الأسعار بالجنيه المصري وشاملة البنزين والكارتة. سعر الذهاب والعودة ضعف سعر الذهاب، وانتظار أكتر من ساعة بيتحسب لوحده. مشوارك مش في القائمة؟ <a href="#custom">اطلب سعر مشوار مخصوص</a>.</p>
+      <p class="fares-note">الأسعار بالجنيه المصري وشاملة البنزين والكارتة. الملاكي بـ ١٠ جنيه للكيلو والهايس أغلى بـ ١٠٪. سعر الذهاب والعودة ضعف سعر الذهاب، وانتظار أكتر من ساعة بيتحسب لوحده. مشوارك مش في القائمة؟ <a href="#custom">اطلب سعر مشوار مخصوص</a>.</p>
     </div>
   </section>
 
@@ -716,18 +716,19 @@ a.menu-btn svg { width: 20px; height: 20px; }
 // Edit these two lists to change the WhatsApp number and the fares.
 const WHATSAPP_NUMBER = "201278021744"; // international format, no + or spaces
 const PHONE_NUMBER = "201278021744";
-// One-way sedan price in EGP (about 10 EGP per km). Round trip is double; Hiace is 10% above the sedan.
+// One-way sedan price = km × RATE_PER_KM. Round trip is double; Hiace is 10% above the sedan.
+const RATE_PER_KM = 10;
 const ORIGIN = "طنطا";
 const FARES = [
-  { to: "مطار القاهرة", note: "حوالي ١١٥ كم، ساعة ونص. توصيل أو استقبال لحد باب البيت", car: 1200 },
-  { to: "المحلة الكبرى", note: "حوالي ٣٠ كم، نص ساعة", car: 300 },
-  { to: "المنصورة", note: "حوالي ٧٠ كم، ساعة", car: 750 },
-  { to: "القاهرة", note: "حوالي ٩٥ كم، ساعة ونص", car: 1000 },
-  { to: "الإسكندرية", note: "حوالي ١٢٠ كم، ساعة ونص", car: 1250 },
-  { to: "العين السخنة", note: "حوالي ٢٢٥ كم، ٣ ساعات", car: 2350 },
-  { to: "الساحل الشمالي", note: "حوالي ٢٣٠ كم لحد العلمين الجديدة، ٣ ساعات", car: 2400 },
-  { to: "الغردقة", note: "حوالي ٥٥٥ كم، ٦ ساعات ونص", car: 5800 },
-];
+  { to: "مطار القاهرة", km: 115, note: "ساعة ونص. توصيل أو استقبال لحد باب البيت" },
+  { to: "المحلة الكبرى", km: 30, note: "نص ساعة" },
+  { to: "المنصورة", km: 70, note: "ساعة" },
+  { to: "القاهرة", km: 95, note: "ساعة ونص" },
+  { to: "الإسكندرية", km: 120, note: "ساعة ونص" },
+  { to: "العين السخنة", km: 225, note: "٣ ساعات" },
+  { to: "الساحل الشمالي", km: 230, note: "لحد العلمين الجديدة، ٣ ساعات" },
+  { to: "الغردقة", km: 555, note: "٦ ساعات ونص" },
+].map((f) => ({ ...f, car: f.km * RATE_PER_KM }));
 const TRIP_TYPES = {
   round: { label: "ذهاب وعودة", factor: 2 },
   oneway: { label: "ذهاب فقط", factor: 1 },
@@ -747,7 +748,7 @@ const renderFares = () => {
   <div class="fare-row" role="row">
     <div class="route" role="cell">
       <span>${esc(ORIGIN)}</span><span class="arrow">${factor === 2 ? "⇄" : "←"}</span><span>${esc(f.to)}</span>
-      <small>${esc(f.note)}</small>
+      <small>حوالي ${f.km.toLocaleString("ar-EG")} كم، ${esc(f.note)}</small>
     </div>
     <div class="price" role="cell"><span class="lbl">ملاكي</span>${money(f.car * factor)} <small>ج.م</small></div>
     <div class="price" role="cell"><span class="lbl">هايس</span>${money(hiacePrice(f.car) * factor)} <small>ج.م</small></div>
