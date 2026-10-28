@@ -5,7 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>نجم كار</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="نجم كار: مشاوير بمواعيد محددة مع كباتن موثوقين في مصر. احجز على واتساب.">
+<meta name="description" content="شركة نجم كار: مشاوير من طنطا بمواعيد محددة، ذهاب وعودة أو ذهاب بس، لمطار القاهرة وكل المحافظات. احجز على واتساب.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="شركة نجم كار">
+<meta property="og:title" content="شركة نجم كار | مشاوير من طنطا في معادها">
+<meta property="og:description" content="عربية نضيفة وكابتن محترم، بسعر ثابت. طنطا ← مطار القاهرة من 1,200 ج.م. احجز على واتساب.">
+<meta property="og:url" content="https://mohamedashraf-sp.github.io/Nagm-cars/">
+<meta property="og:image" content="https://mohamedashraf-sp.github.io/Nagm-cars/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_EG">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
@@ -154,6 +164,9 @@ section.block { padding-block: 72px; }
 .price small { font-weight: 400; color: var(--muted); font-size: .85rem; }
 .price .lbl { display: none; }
 .fares-note { color: var(--muted); font-size: .92rem; margin-top: 14px; }
+.trip-type { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; }
+.trip-type button { font: inherit; font-weight: 700; padding: 8px 20px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; }
+.trip-type button[aria-pressed="true"] { background: var(--night); color: var(--on-night); }
 
 /* Why */
 .why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -416,7 +429,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
         <div class="hero-copy">
           <p class="eyebrow">مشاوير من طنطا بمواعيد محددة</p>
           <h1>مشوارك في <em>معاده</em><br>والكابتن مستنيك</h1>
-          <p class="lead">احجز مشوارك من طنطا قبلها بيوم أو أكتر: جوه طنطا، لمطار القاهرة، أو سفر للقاهرة وإسكندرية والساحل. سعر ثابت متفق عليه، وكابتن محترم بعربية نضيفة ومكيفة.</p>
+          <p class="lead">احجز مشوارك من طنطا قبلها بيوم أو أكتر: لمطار القاهرة، أو سفر للقاهرة وإسكندرية والساحل، ذهاب وعودة أو ذهاب بس. سعر ثابت متفق عليه، وكابتن محترم بعربية نضيفة ومكيفة.</p>
           <div class="hero-actions">
             <a class="btn-wa" data-wa="أهلاً نجم كار، عايز أحجز مشوار" href="#" target="_blank" rel="noopener">
               <svg aria-hidden="true"><use href="#i-wa"/></svg>احجز على واتساب
@@ -487,13 +500,13 @@ a.menu-btn svg { width: 20px; height: 20px; }
     <div class="wrap">
       <div class="sec-head">
         <h2>خدماتنا</h2>
-        <p>من مشوار قصير جوه طنطا لحد رحلة سفر طويلة، احجز اللي محتاجه بالمعاد اللي يناسبك.</p>
+        <p>من مشوار قريب لحد رحلة سفر طويلة، احجز اللي محتاجه بالمعاد اللي يناسبك.</p>
       </div>
       <div class="services">
         <article class="service">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          <h3>مشاوير جوه طنطا</h3>
-          <p>للشغل والجامعة والدكتور وأي مشوار في المدينة.</p>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h14l-4-4M20 15H6l4 4"/></svg>
+          <h3>ذهاب وعودة</h3>
+          <p>الكابتن يوصلك ويرجعك، بسعر ثابت متفق عليه من الأول.</p>
         </article>
         <article class="service">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 16l20-6-3-3-6 2-6-5-2 1 4 5-5 2-2-1-1 1z"/><path d="M3 21h18"/></svg>
@@ -547,7 +560,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
       <div class="fleet">
         <article class="car">
           <div class="car-pic"><img src="images/elantra.jpg" alt="هيونداي إلنترا بيضا" width="960" height="640" loading="lazy"></div>
-          <div class="car-body"><h3>هيونداي إلنترا</h3><span class="seats">٤ ركاب · ٢ شنطة</span><p>للمشاوير داخل المدينة ورحلات المطار.</p></div>
+          <div class="car-body"><h3>هيونداي إلنترا</h3><span class="seats">٤ ركاب · ٢ شنطة</span><p>لرحلات المطار والمشاوير القريبة.</p></div>
         </article>
         <article class="car">
           <div class="car-pic"><img src="images/corolla.jpg" alt="تويوتا كورولا بيضا" width="960" height="624" loading="lazy"></div>
@@ -559,7 +572,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
         </article>
         <article class="car">
           <div class="car-pic"><img src="images/sunny.jpg" alt="نيسان صني" width="960" height="660" loading="lazy"></div>
-          <div class="car-body"><h3>نيسان صني</h3><span class="seats">٤ ركاب · ٢ شنطة</span><p>اقتصادية ومريحة لمشاوير المدينة والسفر القريب.</p></div>
+          <div class="car-body"><h3>نيسان صني</h3><span class="seats">٤ ركاب · ٢ شنطة</span><p>اقتصادية ومريحة للسفر القريب.</p></div>
         </article>
         <article class="car">
           <div class="car-pic"><img src="images/hiace.jpg" alt="تويوتا هايس ميكروباص" width="960" height="558" loading="lazy"></div>
@@ -574,7 +587,11 @@ a.menu-btn svg { width: 20px; height: 20px; }
     <div class="wrap">
       <div class="sec-head">
         <h2>أسعار المشاوير</h2>
-        <p>السعر للرحلة كلها مش للفرد، ذهاب فقط. عايز ذهاب وعودة؟ اسألنا على السعر.</p>
+        <p>السعر للعربية كلها مش للفرد. اختار ذهاب وعودة أو ذهاب بس.</p>
+      </div>
+      <div class="trip-type" role="group" aria-label="نوع المشوار">
+        <button type="button" data-type="round" aria-pressed="true">ذهاب وعودة</button>
+        <button type="button" data-type="oneway" aria-pressed="false">ذهاب فقط</button>
       </div>
       <div class="fares" role="table" aria-label="أسعار المشاوير">
         <div class="fare-row head" role="row">
@@ -585,7 +602,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
         </div>
         <div id="fare-rows"></div>
       </div>
-      <p class="fares-note">الأسعار بالجنيه المصري وشاملة البنزين والكارتة. انتظار أكتر من ساعة بيتحسب لوحده. مشوارك مش في القائمة؟ <a href="#custom">اطلب سعر مشوار مخصوص</a>.</p>
+      <p class="fares-note">الأسعار بالجنيه المصري وشاملة البنزين والكارتة. سعر الذهاب والعودة ضعف سعر الذهاب، وانتظار أكتر من ساعة بيتحسب لوحده. مشوارك مش في القائمة؟ <a href="#custom">اطلب سعر مشوار مخصوص</a>.</p>
     </div>
   </section>
 
@@ -611,7 +628,13 @@ a.menu-btn svg { width: 20px; height: 20px; }
           <label>الساعة
             <input id="trip-time" name="time" type="time">
           </label>
-          <label class="full">عدد الركاب
+          <label>نوع المشوار
+            <select id="trip-kind" name="kind">
+              <option value="ذهاب وعودة">ذهاب وعودة</option>
+              <option value="ذهاب فقط">ذهاب فقط</option>
+            </select>
+          </label>
+          <label>عدد الركاب
             <select id="trip-pax" name="pax">
               <option value="١ - ٤ ركاب (ملاكي)">١ - ٤ ركاب (ملاكي)</option>
               <option value="٥ - ١٢ راكب (هايس)">٥ - ١٢ راكب (هايس)</option>
@@ -693,35 +716,53 @@ a.menu-btn svg { width: 20px; height: 20px; }
 // Edit these two lists to change the WhatsApp number and the fares.
 const WHATSAPP_NUMBER = "201278021744"; // international format, no + or spaces
 const PHONE_NUMBER = "201278021744";
+// One-way sedan price in EGP (about 10 EGP per km). Round trip is double; Hiace is 10% above the sedan.
+const ORIGIN = "طنطا";
 const FARES = [
-  { from: "داخل طنطا", to: "", note: "أي مشوار جوه المدينة", car: "من 60", van: "من 70" },
-  { from: "طنطا", to: "مطار القاهرة", note: "حوالي ١١٥ كم، ساعة ونص. توصيل أو استقبال لحد باب البيت", car: "1,200", van: "1,320" },
-  { from: "طنطا", to: "المحلة الكبرى", note: "حوالي ٣٠ كم، نص ساعة", car: "300", van: "330" },
-  { from: "طنطا", to: "المنصورة", note: "حوالي ٧٠ كم، ساعة", car: "750", van: "830" },
-  { from: "طنطا", to: "القاهرة", note: "حوالي ٩٥ كم، ساعة ونص", car: "1,000", van: "1,100" },
-  { from: "طنطا", to: "الإسكندرية", note: "حوالي ١٢٠ كم، ساعة ونص", car: "1,250", van: "1,380" },
-  { from: "طنطا", to: "العين السخنة", note: "حوالي ٢٢٥ كم، ٣ ساعات", car: "2,350", van: "2,590" },
-  { from: "طنطا", to: "الساحل الشمالي", note: "حوالي ٢٣٠ كم لحد العلمين الجديدة، ٣ ساعات", car: "2,400", van: "2,640" },
-  { from: "طنطا", to: "الغردقة", note: "حوالي ٥٥٥ كم، ٦ ساعات ونص", car: "5,800", van: "6,380" },
+  { to: "مطار القاهرة", note: "حوالي ١١٥ كم، ساعة ونص. توصيل أو استقبال لحد باب البيت", car: 1200 },
+  { to: "المحلة الكبرى", note: "حوالي ٣٠ كم، نص ساعة", car: 300 },
+  { to: "المنصورة", note: "حوالي ٧٠ كم، ساعة", car: 750 },
+  { to: "القاهرة", note: "حوالي ٩٥ كم، ساعة ونص", car: 1000 },
+  { to: "الإسكندرية", note: "حوالي ١٢٠ كم، ساعة ونص", car: 1250 },
+  { to: "العين السخنة", note: "حوالي ٢٢٥ كم، ٣ ساعات", car: 2350 },
+  { to: "الساحل الشمالي", note: "حوالي ٢٣٠ كم لحد العلمين الجديدة، ٣ ساعات", car: 2400 },
+  { to: "الغردقة", note: "حوالي ٥٥٥ كم، ٦ ساعات ونص", car: 5800 },
 ];
+const TRIP_TYPES = {
+  round: { label: "ذهاب وعودة", factor: 2 },
+  oneway: { label: "ذهاب فقط", factor: 1 },
+};
 
 const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-const routeName = (f) => (f.to ? `${f.from} ← ${f.to}` : f.from);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const hiacePrice = (car) => Math.round((car * 1.1) / 10) * 10;
+const money = (n) => n.toLocaleString("en-US");
 
-document.getElementById("fare-rows").innerHTML = FARES.map((f) => `
+let tripType = "round";
+const renderFares = () => {
+  const { label, factor } = TRIP_TYPES[tripType];
+  document.getElementById("fare-rows").innerHTML = FARES.map((f) => {
+    const booking = `أهلاً نجم كار، عايز أحجز مشوار ${label}: ${ORIGIN} ← ${f.to}`;
+    return `
   <div class="fare-row" role="row">
     <div class="route" role="cell">
-      <span>${esc(f.from)}</span>${f.to ? `<span class="arrow">←</span><span>${esc(f.to)}</span>` : ""}
+      <span>${esc(ORIGIN)}</span><span class="arrow">${factor === 2 ? "⇄" : "←"}</span><span>${esc(f.to)}</span>
       <small>${esc(f.note)}</small>
     </div>
-    <div class="price" role="cell"><span class="lbl">ملاكي</span>${esc(f.car)} <small>ج.م</small></div>
-    <div class="price" role="cell"><span class="lbl">هايس</span>${f.van ? `${esc(f.van)} <small>ج.م</small>` : `<small>اسأل على السعر</small>`}</div>
-    <a class="btn-wa sm" role="cell" target="_blank" rel="noopener"
-       data-wa="${esc(`أهلاً نجم كار، عايز أحجز مشوار: ${routeName(f)}`)}" href="#">
+    <div class="price" role="cell"><span class="lbl">ملاكي</span>${money(f.car * factor)} <small>ج.م</small></div>
+    <div class="price" role="cell"><span class="lbl">هايس</span>${money(hiacePrice(f.car) * factor)} <small>ج.م</small></div>
+    <a class="btn-wa sm" role="cell" target="_blank" rel="noopener" href="${esc(waLink(booking))}">
       <svg aria-hidden="true"><use href="#i-wa"/></svg>احجز
     </a>
-  </div>`).join("");
+  </div>`;
+  }).join("");
+};
+document.querySelectorAll(".trip-type button").forEach((btn) => btn.addEventListener("click", () => {
+  tripType = btn.dataset.type;
+  document.querySelectorAll(".trip-type button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+  renderFares();
+}));
+renderFares();
 
 document.querySelectorAll("[data-wa]").forEach((a) => { a.href = waLink(a.dataset.wa); });
 document.querySelectorAll(".wa-num-text").forEach((el) => { el.textContent = "+" + WHATSAPP_NUMBER; });
@@ -750,6 +791,7 @@ const trip = {
   date: document.getElementById("trip-date"),
   time: document.getElementById("trip-time"),
   pax: document.getElementById("trip-pax"),
+  kind: document.getElementById("trip-kind"),
   send: document.getElementById("trip-send"),
   msg: document.getElementById("trip-msg"),
 };
@@ -759,6 +801,7 @@ const tripMessage = () => [
   "أهلاً نجم كار، عايز أعرف سعر مشوار:",
   `من: ${trip.from.value.trim()}`,
   `إلى: ${trip.to.value.trim()}`,
+  `النوع: ${trip.kind.value}`,
   trip.date.value && `اليوم: ${formatDate(trip.date.value)}`,
   trip.time.value && `الساعة: ${formatTime(trip.time.value)}`,
   `عدد الركاب: ${trip.pax.value}`,

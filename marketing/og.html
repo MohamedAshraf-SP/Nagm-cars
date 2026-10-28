@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>صورة اللينك - شركة نجم كار</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@500;700&display=block">
+<style>
+:root {
+  --night: #121838; --night-2: #1E2860; --on-night: #F4F1E8; --gold: #F0C04C; --ink: #121838; --wa: #1D9E50;
+  --display: "Lalezar", "IBM Plex Sans Arabic", sans-serif; --body: "IBM Plex Sans Arabic", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1200px; height: 630px; overflow: hidden; }
+body {
+  font-family: var(--body); color: var(--on-night);
+  background: radial-gradient(90% 120% at 100% 0%, var(--night-2), var(--night) 60%);
+  display: grid; grid-template-columns: 1fr 500px;
+}
+.text { padding: 56px 56px 56px 40px; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+.logo { display: flex; align-items: center; gap: 14px; }
+.logo svg { width: 56px; height: 56px; color: var(--gold); }
+.logo b { font-family: var(--display); font-weight: 400; font-size: 52px; line-height: 1; }
+.logo b span { color: var(--gold); }
+h1 { font-family: var(--display); font-weight: 400; font-size: 76px; line-height: 1.1; }
+h1 em { font-style: normal; color: var(--gold); }
+p { font-size: 28px; font-weight: 500; opacity: .9; }
+.row { display: flex; gap: 14px; align-items: center; }
+.chip { background: var(--gold); color: var(--ink); font-weight: 700; font-size: 28px; padding: 10px 22px; border-radius: 999px; }
+.wa { display: flex; align-items: center; gap: 10px; background: var(--wa); color: #fff; font-weight: 700; font-size: 28px; padding: 10px 22px; border-radius: 999px; }
+.wa svg { width: 32px; height: 32px; }
+.wa span { direction: ltr; }
+.photo { position: relative; }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 45% 60%; display: block; }
+.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to left, transparent 70%, var(--night)); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.8l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9l7.1-.6z"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+</svg>
+<div class="text">
+  <div class="logo"><svg><use href="#star"/></svg><b>شركة نجم <span>كار</span></b></div>
+  <h1>مشاويرك من طنطا<br><em>في معادها</em></h1>
+  <p>ذهاب وعودة أو ذهاب بس · مطار القاهرة وكل المحافظات</p>
+  <div class="row">
+    <span class="chip">المطار من 1,200 ج</span>
+    <span class="wa"><svg><use href="#wa"/></svg><span>01278021744</span></span>
+  </div>
+</div>
+<div class="photo"><img src="../images/elantra.jpg" alt=""></div>
+</body>
+</html>
