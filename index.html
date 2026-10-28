@@ -716,13 +716,13 @@ const RATE_PER_KM = 12;
 const ORIGIN = "طنطا";
 const FARES = [
   { to: "مطار القاهرة", km: 150, note: "ساعتين. توصيل أو استقبال لحد باب البيت" },
-  { to: "المحلة الكبرى", km: 30, note: "نص ساعة" },
-  { to: "المنصورة", km: 70, note: "ساعة" },
-  { to: "القاهرة", km: 95, note: "ساعة ونص" },
-  { to: "الإسكندرية", km: 120, note: "ساعة ونص" },
-  { to: "العين السخنة", km: 225, note: "٣ ساعات" },
-  { to: "الساحل الشمالي", km: 230, note: "لحد العلمين الجديدة، ٣ ساعات" },
-  { to: "الغردقة", km: 555, note: "٦ ساعات ونص" },
+  { to: "المحلة الكبرى", km: 40, note: "نص ساعة" },
+  { to: "المنصورة", km: 90, note: "ساعة" },
+  { to: "القاهرة", km: 120, note: "ساعة ونص" },
+  { to: "الإسكندرية", km: 150, note: "ساعتين" },
+  { to: "العين السخنة", km: 280, note: "٣ ساعات ونص" },
+  { to: "الساحل الشمالي", km: 290, note: "لحد العلمين الجديدة، ٣ ساعات ونص" },
+  { to: "الغردقة", km: 695, note: "٧ ساعات" },
 ].map((f) => ({ ...f, car: f.price ?? f.km * RATE_PER_KM }));
 
 const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
@@ -738,8 +738,8 @@ document.getElementById("fare-rows").innerHTML = FARES.map((f) => {
       <span>${esc(ORIGIN)}</span><span class="arrow">←</span><span>${esc(f.to)}</span>
       <small>حوالي ${f.km.toLocaleString("ar-EG")} كم، ${esc(f.note)}</small>
     </div>
-    <div class="price" role="cell"><span class="lbl">ملاكي</span>${money(f.car)} <small>ج.م</small></div>
-    <div class="price" role="cell"><span class="lbl">هايس</span>${money(hiacePrice(f.car))} <small>ج.م</small></div>
+    <div class="price" role="cell"><span class="lbl">ملاكي</span><small>من</small> ${money(f.car)} <small>ج.م</small></div>
+    <div class="price" role="cell"><span class="lbl">هايس</span><small>من</small> ${money(hiacePrice(f.car))} <small>ج.م</small></div>
     <a class="btn-wa sm" role="cell" target="_blank" rel="noopener" href="${esc(waLink(booking))}">
       <svg aria-hidden="true"><use href="#i-wa"/></svg>احجز
     </a>
