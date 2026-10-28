@@ -711,11 +711,11 @@ a.menu-btn svg { width: 20px; height: 20px; }
 // Edit these two lists to change the WhatsApp number and the fares.
 const WHATSAPP_NUMBER = "201043950220"; // international format, no + or spaces
 const PHONE_NUMBER = "201043950220";
-// One-way sedan price = km × RATE_PER_KM. Round trip is double; Hiace is 10% above the sedan.
+// One-way sedan price = km × RATE_PER_KM unless a route sets its own fixed price. Hiace is 10% above the sedan.
 const RATE_PER_KM = 12;
 const ORIGIN = "طنطا";
 const FARES = [
-  { to: "مطار القاهرة", km: 120, note: "ساعة ونص. توصيل أو استقبال لحد باب البيت" },
+  { to: "مطار القاهرة", km: 150, note: "ساعتين. توصيل أو استقبال لحد باب البيت" },
   { to: "المحلة الكبرى", km: 30, note: "نص ساعة" },
   { to: "المنصورة", km: 70, note: "ساعة" },
   { to: "القاهرة", km: 95, note: "ساعة ونص" },
@@ -723,7 +723,7 @@ const FARES = [
   { to: "العين السخنة", km: 225, note: "٣ ساعات" },
   { to: "الساحل الشمالي", km: 230, note: "لحد العلمين الجديدة، ٣ ساعات" },
   { to: "الغردقة", km: 555, note: "٦ ساعات ونص" },
-].map((f) => ({ ...f, car: f.km * RATE_PER_KM }));
+].map((f) => ({ ...f, car: f.price ?? f.km * RATE_PER_KM }));
 
 const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);

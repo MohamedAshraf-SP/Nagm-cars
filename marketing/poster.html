@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>بوستر الطباعة - شركة نجم كار</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@500;700&display=block">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+@page { size: A4; margin: 0; }
+:root {
+  --navy: #121838; --gold: #F4C247; --cream: #FFF8E6; --wa: #1FA855; --ink: #121838;
+  --display: "Lalezar", "IBM Plex Sans Arabic", sans-serif; --body: "IBM Plex Sans Arabic", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { width: 210mm; height: 297mm; overflow: hidden; background: #fff; }
+body { font-family: var(--body); color: var(--ink); display: flex; flex-direction: column; }
+
+.top { background: var(--navy); color: var(--gold); padding: 6mm 10mm 5mm; display: flex; align-items: center; justify-content: center; gap: 5mm; }
+.top img { height: 20mm; width: auto; }
+.top b { font-family: var(--display); font-weight: 400; font-size: 17mm; line-height: 1; }
+
+.hero { background: var(--gold); padding: 5mm 10mm 6mm; text-align: center; }
+.hero h1 { font-family: var(--display); font-weight: 400; font-size: 34mm; line-height: .95; }
+.hero p { font-size: 8.5mm; font-weight: 700; margin-top: 2mm; }
+
+.price { background: var(--navy); color: #fff; text-align: center; padding: 3mm 10mm 4mm; display: flex; justify-content: center; align-items: baseline; gap: 4mm; }
+.price span { font-family: var(--display); font-weight: 400; font-size: 13mm; line-height: 1; }
+.price strong { font-family: var(--display); font-weight: 400; font-size: 22mm; line-height: 1; color: var(--gold); }
+
+.cars { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; padding: 4mm 10mm 0; }
+.cars div { border-radius: 4mm; overflow: hidden; border: 1mm solid var(--navy); }
+.cars img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; display: block; }
+
+.perks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; padding: 4mm 10mm; }
+.perks span { text-align: center; font-size: 5.6mm; font-weight: 700; padding: 2.5mm 1mm; border: .7mm solid var(--navy); border-radius: 3mm; }
+.perks span::before { content: "✓ "; color: #C8901A; }
+
+.contact { display: grid; grid-template-columns: 1fr 44mm; gap: 6mm; align-items: center; padding: 0 10mm 4mm; }
+.numbers { display: grid; gap: 2.5mm; }
+.numbers .row { display: flex; align-items: center; gap: 3mm; border-radius: 4mm; padding: 2.5mm 4mm; color: #fff; }
+.numbers .wa { background: var(--wa); }
+.numbers .call { background: var(--navy); }
+.numbers svg { width: 11mm; height: 11mm; flex: none; }
+.numbers .lbl { font-size: 6.5mm; font-weight: 700; }
+.numbers .num { margin-inline-start: auto; direction: ltr; font-family: var(--display); font-weight: 400; font-size: 13mm; line-height: 1; letter-spacing: .3mm; }
+.numbers .call .num { color: var(--gold); }
+.qr { text-align: center; }
+.qr #qr { width: 44mm; height: 44mm; }
+.qr #qr svg { width: 100%; height: 100%; display: block; }
+.qr p { font-size: 4.2mm; font-weight: 700; margin-top: 1mm; line-height: 1.25; }
+.site { text-align: center; font-size: 4mm; padding-bottom: 2mm; }
+.site b { direction: ltr; unicode-bidi: isolate; }
+
+/* Tear-off tabs */
+.cut { border-top: .5mm dashed #555; text-align: center; font-size: 3.6mm; padding-top: 1mm; color: #444; }
+.tabs { height: 38mm; display: grid; grid-template-columns: repeat(8, 1fr); }
+.tabs div { border-inline-start: .4mm dashed #777; display: grid; place-items: center; }
+.tabs div:first-child { border-inline-start: 0; }
+.tabs p { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; line-height: 1.15; }
+.tabs b { display: block; font-family: var(--display); font-weight: 400; font-size: 4.4mm; }
+.tabs span { display: block; direction: ltr; font-weight: 700; font-size: 3.8mm; letter-spacing: .2mm; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+</svg>
+
+<header class="top">
+  <img src="../images/logo.svg" alt="">
+  <b>شركة نجم كار</b>
+</header>
+
+<section class="hero">
+  <h1>مسافر؟</h1>
+  <p>عربية نضيفة ومكيفة وكابتن محترم لحد باب بيتك</p>
+</section>
+
+<section class="price"><span>الكيلو بـ</span><strong>12 جنيه</strong><span>بس</span></section>
+
+<section class="cars">
+  <div><img src="../images/elantra.jpg" alt=""></div>
+  <div><img src="../images/hiace.jpg" alt=""></div>
+  <div><img src="../images/corolla.jpg" alt=""></div>
+</section>
+
+<section class="perks"><span>المطار</span><span>كل المحافظات</span><span>ملاكي وهايس</span><span>سعر ثابت</span></section>
+
+<section class="contact">
+  <div class="numbers">
+    <div class="row wa"><svg><use href="#wa"/></svg><span class="lbl">واتساب</span><span class="num">01043950220</span></div>
+    <div class="row call"><svg><use href="#phone"/></svg><span class="lbl">اتصال</span><span class="num">01043950220</span></div>
+  </div>
+  <div class="qr"><div id="qr"></div><p>امسح الكود<br>واحجز على واتساب</p></div>
+</section>
+<p class="site">الأسعار والحجز: <b>mohamedashraf-sp.github.io/Nagm-cars</b></p>
+
+<p class="cut">✂ قص ورقة وخد الرقم معاك</p>
+<section class="tabs" id="tabs"></section>
+
+<script>
+const PHONE = "01043950220";
+const WA_LINK = "https://wa.me/201043950220?text=" + encodeURIComponent("أهلاً نجم كار، عايز أحجز مشوار");
+
+const qr = qrcode(0, "M");
+qr.addData(WA_LINK);
+qr.make();
+document.getElementById("qr").innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+
+document.getElementById("tabs").innerHTML = Array.from({ length: 8 }, () =>
+  `<div><p><b>نجم كار</b><span>${PHONE}</span></p></div>`).join("");
+</script>
+</body>
+</html>
