@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>لوحات مصرية</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@700&family=Cairo:wght@800&display=block">
+<style>
+* { box-sizing: border-box; margin: 0; }
+html, body { overflow: hidden; background: #000; }
+.stage { position: relative; }
+.stage img { display: block; }
+/* Egyptian private-car plate, drawn flat at 400×150 then warped onto the photo's plate corners. */
+.plate {
+  position: absolute; left: 0; top: 0; width: 400px; height: 150px; transform-origin: 0 0;
+  background: #F7F7F2; border: 7px solid #1C1C1C; border-radius: 12px; overflow: hidden;
+  display: grid; grid-template-rows: 34% 1fr; direction: ltr;
+  filter: brightness(.93) contrast(1.05) blur(.35px);
+  box-shadow: inset 0 -10px 18px rgba(0,0,0,.18), inset 0 6px 10px rgba(255,255,255,.5);
+}
+.band {
+  background: #74C3E6; border-bottom: 5px solid #1C1C1C;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 22px;
+  font-family: "Cairo", sans-serif; font-weight: 800; color: #111; line-height: 1;
+}
+.band .en { font-size: 30px; letter-spacing: 3px; }
+.band .ar { font-size: 34px; }
+.body { display: grid; grid-template-columns: 1fr 5px 1fr; align-items: center; }
+.body .sep { background: #1C1C1C; height: 100%; }
+.body span { text-align: center; font-family: "IBM Plex Sans Arabic", sans-serif; font-weight: 700; color: #111; font-size: 60px; line-height: 1; letter-spacing: 6px; }
+.body .letters { direction: rtl; letter-spacing: 10px; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <img id="photo" alt="">
+  <div class="plate" id="plate">
+    <div class="band"><span class="en">EGYPT</span><span class="ar">مصر</span></div>
+    <div class="body"><span class="digits" id="digits"></span><i class="sep"></i><span class="letters">ن ج م</span></div>
+  </div>
+</div>
+<script>
+// Corners of the existing plate in each 960px photo: top-left, top-right, bottom-right, bottom-left.
+const CARS = {
+  elantra: { quad: [[515, 403], [654, 395], [657, 444], [517, 454]], digits: "١" },
+  corolla: { quad: [[475, 372], [615, 364], [618, 412], [477, 420]], digits: "١" },
+  sunny:   { quad: [[567, 415], [708, 410], [710, 458], [569, 463]], digits: "١" },
+  hiace:   { quad: [[606, 409], [680, 404], [682, 432], [608, 438]], digits: "١" },
+  cerato:  { quad: [[829, 381], [925, 329], [932, 388], [831, 440]], digits: "١" },
+};
+
+const solve = (A, b) => {
+  const n = b.length;
+  for (let i = 0; i < n; i++) {
+    let p = i;
+    for (let r = i + 1; r < n; r++) if (Math.abs(A[r][i]) > Math.abs(A[p][i])) p = r;
+    [A[i], A[p]] = [A[p], A[i]];
+    [b[i], b[p]] = [b[p], b[i]];
+    for (let r = i + 1; r < n; r++) {
+      const k = A[r][i] / A[i][i];
+      for (let c = i; c < n; c++) A[r][c] -= k * A[i][c];
+      b[r] -= k * b[i];
+    }
+  }
+  const x = new Array(n).fill(0);
+  for (let i = n - 1; i >= 0; i--) {
+    let s = b[i];
+    for (let c = i + 1; c < n; c++) s -= A[i][c] * x[c];
+    x[i] = s / A[i][i];
+  }
+  return x;
+};
+
+// Projective map from the flat plate rectangle onto the photo quad, as a CSS matrix3d.
+const matrix3d = (w, h, quad) => {
+  const src = [[0, 0], [w, 0], [w, h], [0, h]];
+  const A = [];
+  const b = [];
+  src.forEach(([x, y], i) => {
+    const [u, v] = quad[i];
+    A.push([x, y, 1, 0, 0, 0, -x * u, -y * u]); b.push(u);
+    A.push([0, 0, 0, x, y, 1, -x * v, -y * v]); b.push(v);
+  });
+  const [a, bb, c, d, e, f, g, hh] = solve(A, b);
+  return `matrix3d(${[a, d, 0, g, bb, e, 0, hh, 0, 0, 1, 0, c, f, 0, 1].join(",")})`;
+};
+
+const name = new URLSearchParams(location.search).get("car");
+const car = CARS[name];
+document.getElementById("digits").textContent = car.digits;
+const photo = document.getElementById("photo");
+photo.src = `originals/${name}.jpg`;
+document.getElementById("plate").style.transform = matrix3d(400, 150, car.quad);
+</script>
+</body>
+</html>

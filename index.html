@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>نجم كار</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="شركة نجم كار: مشاوير وسفر بمواعيد محددة لكل المحافظات والمطار، ذهاب وعودة أو ذهاب بس. احجز على واتساب.">
+<meta name="description" content="شركة نجم كار: مشاوير وسفر بمواعيد محددة لكل المحافظات والمطار، بسعر ثابت. احجز على واتساب.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="شركة نجم كار">
 <meta property="og:title" content="شركة نجم كار | سفرك ومشاويرك في معادها">
@@ -16,6 +16,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ar_EG">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/icon.png">
+<link rel="apple-touch-icon" href="images/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
@@ -97,7 +99,11 @@ a { color: inherit; }
 header.top { position: relative; z-index: 2; }
 header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo svg { width: 38px; height: 38px; }
+.logo img { height: 44px; width: auto; }
+.drawer-head .brand-mark { display: flex; align-items: center; gap: 8px; }
+.drawer-head img { height: 34px; width: auto; }
+.footer-logo { display: flex; align-items: center; gap: 10px; }
+.footer-logo img { height: 28px; width: auto; }
 .logo b { font-family: var(--font-display); font-weight: 400; font-size: 2rem; line-height: 1; }
 .logo span { color: var(--gold); }
 nav.links { display: flex; gap: 22px; font-weight: 500; }
@@ -164,9 +170,6 @@ section.block { padding-block: 72px; }
 .price small { font-weight: 400; color: var(--muted); font-size: .85rem; }
 .price .lbl { display: none; }
 .fares-note { color: var(--muted); font-size: .92rem; margin-top: 14px; }
-.trip-type { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; }
-.trip-type button { font: inherit; font-weight: 700; padding: 8px 20px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; }
-.trip-type button[aria-pressed="true"] { background: var(--night); color: var(--on-night); }
 
 /* Why */
 .why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -325,6 +328,8 @@ a.menu-btn svg { width: 20px; height: 20px; }
 @media (max-width: 480px) {
   .fleet, .why, .services, .trip-form { grid-template-columns: 1fr; }
   header.top .btn-wa span { display: none; }
+  .logo img { height: 30px; }
+  .logo b { font-size: 1.6rem; }
   header.top .btn-wa { padding: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -364,7 +369,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
   <div class="scrim" id="scrim"></div>
   <aside class="drawer" id="drawer" aria-label="القائمة">
     <div class="drawer-head">
-      <b>نجم <span>كار</span></b>
+      <span class="brand-mark"><img src="images/logo.svg" alt="" width="82" height="34"><b>نجم <span>كار</span></b></span>
       <button type="button" class="close-btn" id="close-btn" aria-label="اقفل القائمة">×</button>
     </div>
     <nav aria-label="أقسام الصفحة">
@@ -401,7 +406,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
     <header class="top">
       <div class="wrap">
         <a class="logo" href="#top" aria-label="نجم كار">
-          <svg aria-hidden="true" style="color:var(--gold)"><use href="#i-star"/></svg>
+          <img src="images/logo.svg" alt="" width="106" height="44">
           <b>نجم <span>كار</span></b>
         </a>
         <nav class="links" aria-label="أقسام الصفحة">
@@ -429,7 +434,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
         <div class="hero-copy">
           <p class="eyebrow">مشاوير وسفر بمواعيد محددة لكل المحافظات</p>
           <h1>مشوارك في <em>معاده</em><br>والكابتن مستنيك</h1>
-          <p class="lead">احجز مشوارك قبلها بيوم أو أكتر: للمطار، أو سفر من أي محافظة لأي محافظة، ذهاب وعودة أو ذهاب بس. سعر ثابت متفق عليه، وكابتن محترم بعربية نضيفة ومكيفة.</p>
+          <p class="lead">احجز مشوارك قبلها بيوم أو أكتر: للمطار، أو سفر من أي محافظة لأي محافظة. سعر ثابت متفق عليه، وكابتن محترم بعربية نضيفة ومكيفة.</p>
           <div class="hero-actions">
             <a class="btn-wa" data-wa="أهلاً نجم كار، عايز أحجز مشوار" href="#" target="_blank" rel="noopener">
               <svg aria-hidden="true"><use href="#i-wa"/></svg>احجز على واتساب
@@ -504,9 +509,9 @@ a.menu-btn svg { width: 20px; height: 20px; }
       </div>
       <div class="services">
         <article class="service">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h14l-4-4M20 15H6l4 4"/></svg>
-          <h3>ذهاب وعودة</h3>
-          <p>الكابتن يوصلك ويرجعك، بسعر ثابت متفق عليه من الأول.</p>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+          <h3>لحد باب البيت</h3>
+          <p>الكابتن بيجيلك لحد البيت وبيوصلك لحد المكان اللي رايحه، بسعر ثابت متفق عليه من الأول.</p>
         </article>
         <article class="service">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 16l20-6-3-3-6 2-6-5-2 1 4 5-5 2-2-1-1 1z"/><path d="M3 21h18"/></svg>
@@ -587,11 +592,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
     <div class="wrap">
       <div class="sec-head">
         <h2>أسعار المشاوير</h2>
-        <p>السعر للعربية كلها مش للفرد. اختار ذهاب وعودة أو ذهاب بس. مسافر من مدينة تانية؟ <a href="#custom">اطلب سعر مشوارك</a> وهنحسبهولك بنفس السعر للكيلو.</p>
-      </div>
-      <div class="trip-type" role="group" aria-label="نوع المشوار">
-        <button type="button" data-type="round" aria-pressed="true">ذهاب وعودة</button>
-        <button type="button" data-type="oneway" aria-pressed="false">ذهاب فقط</button>
+        <p>السعر للعربية كلها مش للفرد. مسافر من مدينة تانية؟ <a href="#custom">اطلب سعر مشوارك</a> وهنحسبهولك بنفس السعر للكيلو.</p>
       </div>
       <div class="fares" role="table" aria-label="أسعار المشاوير">
         <div class="fare-row head" role="row">
@@ -602,7 +603,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
         </div>
         <div id="fare-rows"></div>
       </div>
-      <p class="fares-note">الأسعار بالجنيه المصري وشاملة البنزين والكارتة. الملاكي بـ <span class="rate-text"></span> جنيه للكيلو والهايس أغلى بـ ١٠٪. سعر الذهاب والعودة ضعف سعر الذهاب، وانتظار أكتر من ساعة بيتحسب لوحده. مشوارك مش في القائمة؟ <a href="#custom">اطلب سعر مشوار مخصوص</a>.</p>
+      <p class="fares-note">الأسعار بالجنيه المصري وشاملة البنزين والكارتة. الملاكي بـ <span class="rate-text"></span> جنيه للكيلو والهايس أغلى بـ ١٠٪. انتظار أكتر من ساعة بيتحسب لوحده. مشوارك مش في القائمة؟ <a href="#custom">اطلب سعر مشوار مخصوص</a>.</p>
     </div>
   </section>
 
@@ -628,13 +629,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
           <label>الساعة
             <input id="trip-time" name="time" type="time">
           </label>
-          <label>نوع المشوار
-            <select id="trip-kind" name="kind">
-              <option value="ذهاب وعودة">ذهاب وعودة</option>
-              <option value="ذهاب فقط">ذهاب فقط</option>
-            </select>
-          </label>
-          <label>عدد الركاب
+          <label class="full">عدد الركاب
             <select id="trip-pax" name="pax">
               <option value="١ - ٤ ركاب (ملاكي)">١ - ٤ ركاب (ملاكي)</option>
               <option value="٥ - ١٢ راكب (هايس)">٥ - ١٢ راكب (هايس)</option>
@@ -699,7 +694,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
 
   <footer>
     <div class="wrap">
-      <span>© نجم كار ٢٠٢٦</span>
+      <span class="footer-logo"><img src="images/logo.svg" alt="" width="68" height="28">© شركة نجم كار ٢٠٢٦</span>
       <span>مشاوير وسفر بمواعيد محددة · لكل المحافظات</span>
     </div>
   </footer>
@@ -729,41 +724,27 @@ const FARES = [
   { to: "الساحل الشمالي", km: 230, note: "لحد العلمين الجديدة، ٣ ساعات" },
   { to: "الغردقة", km: 555, note: "٦ ساعات ونص" },
 ].map((f) => ({ ...f, car: f.km * RATE_PER_KM }));
-const TRIP_TYPES = {
-  round: { label: "ذهاب وعودة", factor: 2 },
-  oneway: { label: "ذهاب فقط", factor: 1 },
-};
 
 const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const hiacePrice = (car) => Math.round((car * 1.1) / 10) * 10;
 const money = (n) => n.toLocaleString("en-US");
 
-let tripType = "round";
-const renderFares = () => {
-  const { label, factor } = TRIP_TYPES[tripType];
-  document.getElementById("fare-rows").innerHTML = FARES.map((f) => {
-    const booking = `أهلاً نجم كار، عايز أحجز مشوار ${label}: ${ORIGIN} ← ${f.to}`;
-    return `
+document.getElementById("fare-rows").innerHTML = FARES.map((f) => {
+  const booking = `أهلاً نجم كار، عايز أحجز مشوار: ${ORIGIN} ← ${f.to}`;
+  return `
   <div class="fare-row" role="row">
     <div class="route" role="cell">
-      <span>${esc(ORIGIN)}</span><span class="arrow">${factor === 2 ? "⇄" : "←"}</span><span>${esc(f.to)}</span>
+      <span>${esc(ORIGIN)}</span><span class="arrow">←</span><span>${esc(f.to)}</span>
       <small>حوالي ${f.km.toLocaleString("ar-EG")} كم، ${esc(f.note)}</small>
     </div>
-    <div class="price" role="cell"><span class="lbl">ملاكي</span>${money(f.car * factor)} <small>ج.م</small></div>
-    <div class="price" role="cell"><span class="lbl">هايس</span>${money(hiacePrice(f.car) * factor)} <small>ج.م</small></div>
+    <div class="price" role="cell"><span class="lbl">ملاكي</span>${money(f.car)} <small>ج.م</small></div>
+    <div class="price" role="cell"><span class="lbl">هايس</span>${money(hiacePrice(f.car))} <small>ج.م</small></div>
     <a class="btn-wa sm" role="cell" target="_blank" rel="noopener" href="${esc(waLink(booking))}">
       <svg aria-hidden="true"><use href="#i-wa"/></svg>احجز
     </a>
   </div>`;
-  }).join("");
-};
-document.querySelectorAll(".trip-type button").forEach((btn) => btn.addEventListener("click", () => {
-  tripType = btn.dataset.type;
-  document.querySelectorAll(".trip-type button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-  renderFares();
-}));
-renderFares();
+}).join("");
 
 document.querySelectorAll("[data-wa]").forEach((a) => { a.href = waLink(a.dataset.wa); });
 document.querySelectorAll(".wa-num-text").forEach((el) => { el.textContent = "+" + WHATSAPP_NUMBER; });
@@ -793,7 +774,6 @@ const trip = {
   date: document.getElementById("trip-date"),
   time: document.getElementById("trip-time"),
   pax: document.getElementById("trip-pax"),
-  kind: document.getElementById("trip-kind"),
   send: document.getElementById("trip-send"),
   msg: document.getElementById("trip-msg"),
 };
@@ -803,7 +783,6 @@ const tripMessage = () => [
   "أهلاً نجم كار، عايز أعرف سعر مشوار:",
   `من: ${trip.from.value.trim()}`,
   `إلى: ${trip.to.value.trim()}`,
-  `النوع: ${trip.kind.value}`,
   trip.date.value && `اليوم: ${formatDate(trip.date.value)}`,
   trip.time.value && `الساعة: ${formatTime(trip.time.value)}`,
   `عدد الركاب: ${trip.pax.value}`,

@@ -17,4 +17,6 @@
 | `images/elantra.jpg` | [HYUNDAI ELANTRA CN7 China](https://commons.wikimedia.org/wiki/File:HYUNDAI_ELANTRA_CN7_China.jpg), Dinkun Chen | CC BY-SA 4.0 |
 | `images/cerato.jpg` | [2021 Kia Cerato GT-Line Limited Edition front right](https://commons.wikimedia.org/wiki/File:2021_Kia_Cerato_GT-Line_Limited_Edition_front_right.jpg), Throwawayacc222 | CC0 |
 
+اللوحات المصرية اتحطت على الصور بالتعديل (الأصل في `marketing/originals/`، والتعديل بيتعمل من `marketing/plates.html`).
+
 لو عندك صور لعربياتكم، حطها بنفس الأسامي في فولدر `images/`.
