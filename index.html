@@ -384,7 +384,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
       <a class="btn-call on-card" data-tel href="#">
         <svg aria-hidden="true"><use href="#i-phone"/></svg>اتصل بينا
       </a>
-      <small>واتساب واتصال: <span class="wa-num-text" dir="ltr"></span></small>
+      <small>واتساب: <span class="wa-num-text" dir="ltr"></span> · اتصال: <span class="phone-text" dir="ltr"></span></small>
     </div>
   </aside>
 
@@ -602,7 +602,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
         </div>
         <div id="fare-rows"></div>
       </div>
-      <p class="fares-note">الأسعار بالجنيه المصري وشاملة البنزين والكارتة. الملاكي بـ ١٠ جنيه للكيلو والهايس أغلى بـ ١٠٪. سعر الذهاب والعودة ضعف سعر الذهاب، وانتظار أكتر من ساعة بيتحسب لوحده. مشوارك مش في القائمة؟ <a href="#custom">اطلب سعر مشوار مخصوص</a>.</p>
+      <p class="fares-note">الأسعار بالجنيه المصري وشاملة البنزين والكارتة. الملاكي بـ <span class="rate-text"></span> جنيه للكيلو والهايس أغلى بـ ١٠٪. سعر الذهاب والعودة ضعف سعر الذهاب، وانتظار أكتر من ساعة بيتحسب لوحده. مشوارك مش في القائمة؟ <a href="#custom">اطلب سعر مشوار مخصوص</a>.</p>
     </div>
   </section>
 
@@ -714,13 +714,13 @@ a.menu-btn svg { width: 20px; height: 20px; }
 
 <script>
 // Edit these two lists to change the WhatsApp number and the fares.
-const WHATSAPP_NUMBER = "201278021744"; // international format, no + or spaces
-const PHONE_NUMBER = "201278021744";
+const WHATSAPP_NUMBER = "201043950220"; // international format, no + or spaces
+const PHONE_NUMBER = "201043950220";
 // One-way sedan price = km × RATE_PER_KM. Round trip is double; Hiace is 10% above the sedan.
-const RATE_PER_KM = 10;
+const RATE_PER_KM = 12;
 const ORIGIN = "طنطا";
 const FARES = [
-  { to: "مطار القاهرة", km: 115, note: "ساعة ونص. توصيل أو استقبال لحد باب البيت" },
+  { to: "مطار القاهرة", km: 120, note: "ساعة ونص. توصيل أو استقبال لحد باب البيت" },
   { to: "المحلة الكبرى", km: 30, note: "نص ساعة" },
   { to: "المنصورة", km: 70, note: "ساعة" },
   { to: "القاهرة", km: 95, note: "ساعة ونص" },
@@ -769,6 +769,7 @@ document.querySelectorAll("[data-wa]").forEach((a) => { a.href = waLink(a.datase
 document.querySelectorAll(".wa-num-text").forEach((el) => { el.textContent = "+" + WHATSAPP_NUMBER; });
 document.querySelectorAll("[data-tel]").forEach((a) => { a.href = "tel:+" + PHONE_NUMBER; });
 document.querySelectorAll(".phone-text").forEach((el) => { el.textContent = "0" + PHONE_NUMBER.slice(2); });
+document.querySelectorAll(".rate-text").forEach((el) => { el.textContent = RATE_PER_KM.toLocaleString("ar-EG"); });
 
 const page = document.querySelector(".page");
 const menuBtn = document.getElementById("menu-btn");
