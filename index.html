@@ -646,6 +646,7 @@ a.menu-btn svg { width: 20px; height: 20px; }
           <option value="القاهرة"></option>
           <option value="الجيزة"></option>
           <option value="الإسكندرية"></option>
+          <option value="كفر الزيات"></option>
           <option value="المحلة الكبرى"></option>
           <option value="المنصورة"></option>
           <option value="كفر الشيخ"></option>
@@ -716,9 +717,11 @@ const RATE_PER_KM = 12;
 const ORIGIN = "طنطا";
 const FARES = [
   { to: "مطار القاهرة", km: 150, note: "ساعتين. توصيل أو استقبال لحد باب البيت" },
+  { to: "كفر الزيات", km: 25, note: "تلت ساعة" },
   { to: "المحلة الكبرى", km: 40, note: "نص ساعة" },
   { to: "المنصورة", km: 90, note: "ساعة" },
   { to: "القاهرة", km: 120, note: "ساعة ونص" },
+  { from: "كفر الزيات", to: "القاهرة", km: 130, note: "ساعة ونص" },
   { to: "الإسكندرية", km: 150, note: "ساعتين" },
   { to: "العين السخنة", km: 280, note: "٣ ساعات ونص" },
   { to: "الساحل الشمالي", km: 290, note: "لحد العلمين الجديدة، ٣ ساعات ونص" },
@@ -731,11 +734,12 @@ const hiacePrice = (car) => Math.round((car * 1.1) / 10) * 10;
 const money = (n) => n.toLocaleString("en-US");
 
 document.getElementById("fare-rows").innerHTML = FARES.map((f) => {
-  const booking = `أهلاً نجم كار، عايز أحجز مشوار: ${ORIGIN} ← ${f.to}`;
+  const from = f.from ?? ORIGIN;
+  const booking = `أهلاً نجم كار، عايز أحجز مشوار: ${from} ← ${f.to}`;
   return `
   <div class="fare-row" role="row">
     <div class="route" role="cell">
-      <span>${esc(ORIGIN)}</span><span class="arrow">←</span><span>${esc(f.to)}</span>
+      <span>${esc(from)}</span><span class="arrow">←</span><span>${esc(f.to)}</span>
       <small>حوالي ${f.km.toLocaleString("ar-EG")} كم، ${esc(f.note)}</small>
     </div>
     <div class="price" role="cell"><span class="lbl">ملاكي</span><small>من</small> ${money(f.car)} <small>ج.م</small></div>
